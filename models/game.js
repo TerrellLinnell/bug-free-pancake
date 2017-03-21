@@ -3,11 +3,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Game = new Schema ({
-  ActiveRound: Number,
+  ActiveRound: {type: Number, default: 1},
   Players: [
             {type: Schema.Types.ObjectId, ref:'Player'}
             ],
-  Complete: Boolean
+  Complete: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('Game', Game);

@@ -24,8 +24,59 @@ Router.route('/')
   })
 
 Router.route('/games')
-post
-get
+.post(function (req, res) {
+  var game = new Game ()
+  game.save(function (err, game) {
+    if (err) {
+      res.json({message: 'error saving game'})
+    } else {
+      res.json(game)
+    }
+  })
+})
+
+Router.route('/games/:gameId')
+.get(function (req, res) {
+  game.FindById(req.body.id, function (err, game) {
+    .populate({
+      path: 'Players',
+    })
+    .exec(function (err, game) {
+      if (err) {
+        res.json(err, 'ERROR');
+      } else {
+        res.json(game)
+      }
+    })
+  })
+})
+
+Router.route('/questions')
+.post(function (req, res) {
+  var question = new Question ({
+    Level: req.body.Level,
+    Question: req.body.Question,
+    Answers: [
+      {
+        Answer: req.body.Answer,
+        Correct: req.body.Correct
+      }
+    ]
+  })
+  question.save(function (err, question) {
+    if (err) {
+      res.json({message: 'error saving question'})
+    } else {
+      res.json(question)
+    }
+  })
+})
+.get(function (req, res) {
+    question.Find({req.body.ActiveRound === req.body.Level}, function (err, questions) {
+      var Q = Math.round(Math.random() * questions.length)
+      return questions[Q];
+    })
+})
 
 
   Router.route('/players')
@@ -39,12 +90,12 @@ get
         rses.json({message: 'there was an error saving this user'})
       } else {
         //look game up by id and add this players id oto the playrs array
-        Game.FindById(req.body.id, function (err, game) {
+        game.FindById(req.body.id, function (err, game) {
           if (err) {
             res.json({message: 'error finding a game'})
           } else {
-            Game.Players.push(player._id)
-            Game.save(function (err, game) {
+            game.Players.push(player._id)
+            game.save(function (err, game) {
               if (err) {
                 res.json({message: 'error saving game'})
               } else {
