@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dev" : "nf start -p 3000 --procfile Procfile.dev",
+    "server": "node app.js",
+    "mon": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
