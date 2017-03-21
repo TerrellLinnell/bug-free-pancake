@@ -1,5 +1,6 @@
 var express = require('express');
 var Player = require('../models/player');
+var Game = require('../models/game');
 
 var Router = new express.Router();
 
@@ -22,17 +23,36 @@ Router.route('/')
       });
   })
 
-  Router.route('/Player')
+Router.route('/games')
+post
+get
+
+
+  Router.route('/players')
   .post(function (req, res) {
     var player = new Player ({
       name: req.body.name,
       score: 0
     })
-  player.save(function (err, player) {
-    if (err) {
-      rses.json({message: 'there was an error saving this user'})
-    } else {
-      res.json(player)
+    player.save(function (err, player) {
+      if (err) {
+        rses.json({message: 'there was an error saving this user'})
+      } else {
+        //look game up by id and add this players id oto the playrs array
+        Game.FindById(req.body.id, function (err, game) {
+          if (err) {
+            res.json({message: 'error finding a game'})
+          } else {
+            Game.Players.push(player._id)
+            Game.save(function (err, game) {
+              if (err) {
+                res.json({message: 'error saving game'})
+              } else {
+                res.json(game)
+              }
+            })
+          }
+      })
     }
   })
 })
