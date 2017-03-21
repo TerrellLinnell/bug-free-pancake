@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Question = new Schema ({
-  Level: Number;
+  Level: Number,
   Question: String,
   Answers: [
     {
