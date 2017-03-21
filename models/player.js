@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var Player = new Schema ({
   name: String,
-  Score: Number
+  Score: {type: Number, default: 0}
 });
 
-module.exports = mongoose.model('PLayer', Player);
+module.exports = mongoose.model('Player', Player);
