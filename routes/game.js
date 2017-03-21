@@ -21,8 +21,8 @@ Router.route('/')
         }
       });
   })
-  
-  Router.route('/PLayer')
+
+  Router.route('/Player')
   .Post(function (req, res) {
     var player = new Player {
       name: req.body.name;
