@@ -2,12 +2,12 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var Game = new Schema ({
-  ActiveRound: {type: Number, default: 1},
-  Players: [
+var GameSchema = new Schema ({
+  activeRound: {type: Number, default: 1},
+  players: [
             {type: Schema.Types.ObjectId, ref:'Player'}
             ],
-  Complete: {type: Boolean, default: false}
+  complete: {type: Boolean, default: false}
 });
 
-module.exports = mongoose.model('Game', Game);
+module.exports = mongoose.model('Game', GameSchema);

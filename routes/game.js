@@ -40,7 +40,7 @@ Router.route('/games/:gameId')
 .get(function (req, res) {
   Game.findById(req.params.gameId)
     .populate({
-      path: 'Players',
+      path: 'players',
     })
     .exec(function (err, game) {
       if (err) {
@@ -109,6 +109,7 @@ Router.route('/questions/:questionId')
     var player = new Player ({
       name: req.body.name,
     })
+    console.log(player);
     player.save(function (err, player) {
       if (err) {
         res.json({message: 'there was an error saving this user'})
@@ -118,7 +119,9 @@ Router.route('/questions/:questionId')
           if (err) {
             res.json({message: 'error finding a Game'})
           } else {
-            Game.Players.push(player._id)
+            console.log('before', Game.players);
+            Game.players.push(player._id)
+            console.log('after', Game.players);
             Game.save(function (err, Game) {
               if (err) {
                 res.json({message: 'error saving Game'})
