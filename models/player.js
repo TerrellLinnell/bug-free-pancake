@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var Player = new Schema ({
+var PlayerSchema = new Schema ({
   name: String,
-  Score: {type: Number, default: 0}
+  score: {type: Number, default: 0}
 });
 
-module.exports = mongoose.model('Player', Player);
+module.exports = mongoose.model('Player', PlayerSchema);

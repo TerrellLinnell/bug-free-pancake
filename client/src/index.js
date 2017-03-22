@@ -1,9 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import App from './App';
-import './index.css';
+import './views/index.css';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import Home from './containers/HomeContainer';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+
+render((
+  <Router history={browserHistory} >
+    <Route path='/' component={App}>
+      <IndexRoute component={Home}/>
+        {/*<Route path='/Game' component={Game}/>
+        <Route path='/Answer' component={Answer}/>
+        <Route path='/Results' component={Results} /> */}
+    </Route>
+  </Router>
+), document.getElementById('root'));

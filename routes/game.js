@@ -55,7 +55,7 @@ Router.route('/games/:gameId')
 .get(function (req, res) {
   Game.findById(req.params.gameId)
     .populate({
-      path: 'Players',
+      path: 'players',
     })
     .exec(function (err, game) {
       if (err) {
@@ -100,7 +100,7 @@ Router.route('/questions')
 })
 .get(function (req, res) {
     Question.find((req.body.ActiveRound === req.body.Level), function (err, questions) {
-      var Q = Math.round(Math.random() * questions.length)
+      var Q = Math.floor(Math.random() * questions.length)
       if (err) {
         res.json({message: 'error finding questions'})
       } else {
@@ -124,6 +124,7 @@ Router.route('/questions/:questionId')
     var player = new Player ({
       name: req.body.name,
     })
+    console.log(player);
     player.save(function (err, player) {
       if (err) {
         res.json({message: 'there was an error saving this user'})
@@ -133,7 +134,9 @@ Router.route('/questions/:questionId')
           if (err) {
             res.json({message: 'error finding a Game'})
           } else {
-            Game.Players.push(player._id)
+            console.log('before', Game.players);
+            Game.players.push(player._id)
+            console.log('after', Game.players);
             Game.save(function (err, Game) {
               if (err) {
                 res.json({message: 'error saving Game'})

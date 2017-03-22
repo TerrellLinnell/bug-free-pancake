@@ -6,13 +6,11 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 var app = express();
-var index = require('./routes/index');
 
 mongoose.connect('mongodb://localhost/blog');
 
 var gameRoutes = require('./routes/game');
 
-app.use('/', index);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

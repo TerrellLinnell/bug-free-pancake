@@ -2,15 +2,15 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var Question = new Schema ({
-  Level: Number,
-  Question: String,
-  Answers: [
+var QuestionSchema = new Schema ({
+  level: Number,
+  question: String,
+  answers: [
     {
-      Answer: String,
-      Correct: Boolean
+      answer: String,
+      correct: Boolean
     }
   ]
 });
 
-module.exports = mongoose.model('Question', Question);
+module.exports = mongoose.model('Question', QuestionSchema);
