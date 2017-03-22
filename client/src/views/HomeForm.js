@@ -12,7 +12,7 @@ const HomeForm = (props) => {
         </Form>
       </div>
       <div>
-        <Button className='btn btn-success'><Link to={'/Game/' + props.gameId }>Start Game</Link></Button>
+        <Link className='btn btn-success' to={'/Game/' + props.gameId }>Start Game</Link>
       </div>
     </div>
   )

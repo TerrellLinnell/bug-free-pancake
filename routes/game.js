@@ -54,24 +54,24 @@ Router.route('/games/:gameId')
 Router.route('/questions')
 .post(function (req, res) {
   var question = new Question ({
-    Level: req.body.Level,
-    Question: req.body.Question,
-    Answers: [
+    level: req.body.level,
+    question: req.body.question,
+    answers: [
       {
-        Answer: req.body.Answer,
-        Correct: req.body.Correct
+        answer: req.body.answer,
+        correct: req.body.correct
       },
       {
-        Answer: req.body.Answer2,
-        Correct: req.body.Correct2
+        answer: req.body.answer2,
+        correct: req.body.correct2
       },
       {
-        Answer: req.body.Answer3,
-        Correct: req.body.Correct3
+        answer: req.body.answer3,
+        correct: req.body.correct3
       },
       {
-        Answer: req.body.Answer4,
-        Correct: req.body.Correct4
+        answer: req.body.answer4,
+        correct: req.body.correct4
       }
     ]
   })
