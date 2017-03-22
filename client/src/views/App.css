@@ -12,3 +12,9 @@
 .App-intro {
   font-size: large;
 }
+
+.gameHeader {
+  display: flex;
+  justify-content: space-around;
+  border: 4px solid black;
+}

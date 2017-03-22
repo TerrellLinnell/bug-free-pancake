@@ -59,7 +59,7 @@ class HomeContainer extends Component {
   render () {
     return (
       <div>
-        <HomeForm onSubmitHandler={this.onSubmitHandler} onChangeHandler={this.onChangeHandler} />
+        {this.state.game ? <HomeForm onSubmitHandler={this.onSubmitHandler} onChangeHandler={this.onChangeHandler} gameId={this.state.game._id}/> : null}
       </div>
     )
   }
