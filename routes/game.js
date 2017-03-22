@@ -85,7 +85,7 @@ Router.route('/questions')
 })
 .get(function (req, res) {
     Question.find((req.body.ActiveRound === req.body.Level), function (err, questions) {
-      var Q = Math.round(Math.random() * questions.length)
+      var Q = Math.floor(Math.random() * questions.length)
       if (err) {
         res.json({message: 'error finding questions'})
       } else {
