@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import GameHeader from '../views/gameHeader';
-import QuestionBox from '../views/questions';
+import PlayerHeader from '../views/PlayerHeader';
+import QuestionForm from '../views/QuestionForm';
 
 
 class GameContainer extends Component {
@@ -11,14 +11,17 @@ class GameContainer extends Component {
     super(props);
 
     this.state = {
-      game: null,
-      question: null
+      game     :  null,
+      score    :  null,
+      players  :  null,
+      round    :  null,
+      turn     :  null,
+      complete :  false
     }
   }
 
   componentWillMount = () => {
     this.getGameById();
-    this.getQuestions();
   }
 
   getGameById = () => {
@@ -31,23 +34,12 @@ class GameContainer extends Component {
     })
   }
 
-  getQuestions = () => {
-    console.log('calling question function');
-    $.ajax({
-      url: '/api/questions',
-      method: 'GET'
-    }).done((question) => {
-      console.log('done loading questions', question);
-      this.setState({question});
-    })
-  }
-
+  
 
   render () {
     return (
       <div>
-        {this.state.game ? <GameHeader game={this.state.game} /> : null}
-        {(this.state.question && this.state.game)? <QuestionBox game={this.state.game} questions={this.state.question} /> : null}
+        {this.state.game ? <PlayerHeader game={this.state.game} /> : null}
       </div>
     );
   }

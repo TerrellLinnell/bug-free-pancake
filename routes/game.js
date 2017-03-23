@@ -109,7 +109,7 @@ Router.route('/questions')
     })
 })
 
-Router.route('/questions/:questionId')
+Router.route('/questions/:gameId/:questionId')
 .delete(function (req, res) {
   Question.remove({_id: req.params.questionId}, function (err) {
     if (err) {
@@ -119,6 +119,16 @@ Router.route('/questions/:questionId')
     }
   })
 })
+.get(function (req, res) {
+  Question.findById({_id: req.params.questionId}, function (err, data) {
+    if (err) {
+      res.json({message: 'Error getting question'})
+    } else {
+      res.json({data})
+    }
+  })
+})
+
   Router.route('/:gameId/players')
   .post(function (req, res) {
     var player = new Player ({
