@@ -36,13 +36,11 @@ class HomeContainer extends Component {
       url: '/api/games/' + this.state.game._id,
       method: 'GET',
     }).done((game) => {
-      console.log('done getting game by id', game);
       this.setState({game});
     })
   }
 
   onSubmitHandler = (e) => {
-    console.log('im being triggered');
     e.preventDefault();
     $.ajax({
       url: `/api/${this.state.game._id}/players`,
@@ -51,7 +49,6 @@ class HomeContainer extends Component {
         name: this.state.name
       }
     }).done((data) => {
-      console.log('the done is here', data);
         this.getGameById();
         $('#playerName').val('');
     })

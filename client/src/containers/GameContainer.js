@@ -27,7 +27,6 @@ class GameContainer extends Component {
       url: '/api/games/' + this.props.params.gameId,
       method: 'GET'
     }).done((game) => {
-      console.log('done getting game by id', game);
       this.setState({game});
     })
   }
@@ -41,7 +40,6 @@ class GameContainer extends Component {
   // }
 
   render () {
-    console.log(this.state.game);
     return (
       <div>
         {this.state.game ? <PlayerHeader game={this.state.game} /> : null}
