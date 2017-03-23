@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import PlayerHeader from '../views/PlayerHeader';
-import QuestionForm from '../views/QuestionForm';
-
 
 class GameContainer extends Component {
 
@@ -34,12 +32,20 @@ class GameContainer extends Component {
     })
   }
 
-  
+  // updatePlayerScore = () = {
+  //   if (this.state.game.gameId.players.name) {
+  //
+  //   } else {
+  //
+  //   }
+  // }
 
   render () {
+    console.log(this.state.game);
     return (
       <div>
         {this.state.game ? <PlayerHeader game={this.state.game} /> : null}
+        {this.props.children && React.cloneElement(this.props.children, {game: this.state.game, round: this.state.round, turn: this.state.turn})}
       </div>
     );
   }

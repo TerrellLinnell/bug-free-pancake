@@ -109,7 +109,7 @@ Router.route('/questions')
     })
 })
 
-Router.route('/questions/:gameId/:questionId')
+Router.route('/questions/:questionId/')
 .delete(function (req, res) {
   Question.remove({_id: req.params.questionId}, function (err) {
     if (err) {
