@@ -6,7 +6,7 @@ const QuestionForm = (props) => {
   var Answers = props.question.answers.map(function (item) {
     return (
       <div className='form-group'>
-      <input name='answer' type='radio' value={item.answer}/>
+      <input name='answer' type='radio' value={item.correct} onChange={ (event) => props.onChangeHandler(event.target.value)}/>
         <label> {item.answer} </label>
        </div>
     )
@@ -16,9 +16,9 @@ const QuestionForm = (props) => {
         <h2>Level: {props.question.level}</h2>
         <h2>Player: {props.game.players[0].name}</h2>
         <h3>Question: {props.question.question}</h3>
-        <Form>
+        <Form onSubmit={props.onSubmitHandler}>
             {Answers}
-          <Button type='submit' onSubmit={() => props.onSubmitHandler()}> Submit Answer</Button>
+          <Button type='submit' className='btn btn-success' >Submit Answer </Button>
         </Form>
       </div>
     )
