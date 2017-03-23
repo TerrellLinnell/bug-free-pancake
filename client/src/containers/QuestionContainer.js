@@ -13,18 +13,15 @@ class QuestionContainer extends Component {
   }
 
 componentWillMount = () => {
-  console.log("This is the question container");
   this.getQuestions();
 }
 
 
 getQuestions = () => {
-  console.log('calling get question function');
   $.ajax({
     url: '/api/questions',
     method: 'GET'
   }).done((question) => {
-    console.log('done loading questions', question);
     this.setState({question});
   })
 }
@@ -41,7 +38,6 @@ getQuestions = () => {
 
 
   render () {
-    console.log(this.state);
     return (
       <div>
         {this.state.question ? <QuestionForm question={this.state.question} game={this.props.game} onSubmitHandler={this.onSubmitHandler}/> : null}
