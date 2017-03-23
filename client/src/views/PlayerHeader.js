@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const GameHeader = (props) => {
+const PlayerHeader = (props) => {
   console.log(props);
   var players = props.game.players.map(function (item) {
     return (
@@ -17,4 +17,4 @@ const GameHeader = (props) => {
   );
 }
 
-export default GameHeader;
+export default PlayerHeader;
