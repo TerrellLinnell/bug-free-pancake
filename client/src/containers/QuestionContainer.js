@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import QuestionResponse from '../views/QuestionResponse';
+import QuestionForm from '../views/QuestionForm';
 import $ from 'jquery';
 
 class QuestionContainer extends Component {
@@ -8,19 +8,18 @@ class QuestionContainer extends Component {
     super(props)
 
     this.state={
-      game: null,
       question: null
     }
   }
 
 componentWillMount = () => {
-  this.getQuestionById();
+  console.log("This is the question container");
   this.getQuestions();
 }
 
 
 getQuestions = () => {
-  console.log('calling question function');
+  console.log('calling get question function');
   $.ajax({
     url: '/api/questions',
     method: 'GET'
@@ -29,16 +28,6 @@ getQuestions = () => {
     this.setState({question});
   })
 }
-
-  getQuestionById = () => {
-    $.ajax({
-      url: '/api/questions/' + this.props.params.gameId + '/' + this.props.params.questionId,
-      method: 'GET'
-    }).done((question) => {
-      console.log('done getting question by id', question);
-      this.setState({question});
-    })
-  }
 
   onSubmitHandler = () => {
     $.ajax({
@@ -52,11 +41,11 @@ getQuestions = () => {
 
 
   render () {
+    console.log(this.state);
     return (
-      // {/*<div>
-      // {(this.state.game.question.answers.correct === 1 ) ? <CorrectAnswerDisplay/> : <WrongAnswerDisplay/>}
-      // </div>*/}
-      <h1> this is the question container </h1>
+      <div>
+        {this.state.question ? <QuestionForm question={this.state.question} game={this.props.game} onSubmitHandler={this.onSubmitHandler}/> : null}
+      </div>
     )
   }
 
