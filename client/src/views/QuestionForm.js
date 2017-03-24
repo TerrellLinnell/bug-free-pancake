@@ -17,7 +17,7 @@ const QuestionForm = (props) => {
         <h2>Player: {props.game.players[0].name}</h2>
         <h3>Question: {props.question.question}</h3>
         <Form>
-            {Answers}
+          {Answers}
           <Button type='submit' onSubmit={() => props.onSubmitHandler()}> Submit Answer</Button>
         </Form>
       </div>

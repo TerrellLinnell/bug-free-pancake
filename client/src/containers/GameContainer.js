@@ -10,10 +10,9 @@ class GameContainer extends Component {
 
     this.state = {
       game     :  null,
-      score    :  null,
       players  :  null,
-      round    :  null,
-      turn     :  null,
+      round    :  0,
+      turn     :  0,
       complete :  false
     }
   }
@@ -28,6 +27,7 @@ class GameContainer extends Component {
       method: 'GET'
     }).done((game) => {
       this.setState({game});
+      this.setState({players: game.players})
     })
   }
 
@@ -43,7 +43,7 @@ class GameContainer extends Component {
     return (
       <div>
         {this.state.game ? <PlayerHeader game={this.state.game} /> : null}
-        {this.props.children && React.cloneElement(this.props.children, {game: this.state.game, round: this.state.round, turn: this.state.turn})}
+        {this.props.children && React.cloneElement(this.props.children, {game: this.state.game, players: this.state.players, round: this.state.round, turn: this.state.turn, score: this.state.score})}
       </div>
     );
   }
