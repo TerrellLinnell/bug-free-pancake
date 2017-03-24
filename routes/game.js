@@ -1,4 +1,5 @@
 var express = require('express');
+var Game = require('../models/game');
 var Player = require('../models/player');
 var Game = require('../models/game');
 var Question = require('../models/question');
@@ -22,6 +23,20 @@ Router.route('/')
           res.json(players);
         }
       });
+  })
+  .post(function(req, res){
+    var game = new Game({
+      activeRound: 0,
+      players: req.body,
+      complete: 0
+    });
+    game.save(function(err, game){
+      if (err) {
+        res.json({ message: 'there was an error saving the game' });
+      } else {
+        res.json(game);
+      }
+    });
   })
 
 Router.route('/games')
@@ -52,46 +67,57 @@ Router.route('/games/:gameId')
 })
 
 Router.route('/questions')
-.post(function (req, res) {
-  var question = new Question ({
-    level: req.body.level,
-    question: req.body.question,
-    answers: [
-      {
-        answer: req.body.answer,
-        correct: req.body.correct
-      },
-      {
-        answer: req.body.answer2,
-        correct: req.body.correct2
-      },
-      {
-        answer: req.body.answer3,
-        correct: req.body.correct3
-      },
-      {
-        answer: req.body.answer4,
-        correct: req.body.correct4
-      }
-    ]
-  })
-  question.save(function (err, question) {
-    if (err) {
-      res.json({message: 'error saving question'})
-    } else {
-      res.json(question)
-    }
-  })
-})
-.get(function (req, res) {
-    Question.find((req.body.ActiveRound === req.body.Level), function (err, questions) {
-      var Q = Math.floor(Math.random() * questions.length)
+  .post(function (req, res) {
+    var question = new Question ({
+      level: req.body.level,
+      question: req.body.question,
+      answers: [
+        {
+          answer: req.body.answer,
+          correct: req.body.correct
+        },
+        {
+          answer: req.body.answer2,
+          correct: req.body.correct2
+        },
+        {
+          answer: req.body.answer3,
+          correct: req.body.correct3
+        },
+        {
+          answer: req.body.answer4,
+          correct: req.body.correct4
+        }
+      ]
+    })
+    question.save(function (err, question) {
       if (err) {
-        res.json({message: 'error finding questions'})
+        res.json({message: 'error saving question'})
       } else {
-        res.json(questions[Q]);
+        res.json(question)
       }
     })
+  })
+  .get(function (req, res) {
+      Question.find((req.body.ActiveRound === req.body.Level), function (err, questions) {
+        var Q = Math.floor(Math.random() * questions.length)
+        if (err) {
+          res.json({message: 'error finding questions'})
+        } else {
+          res.json(questions[Q]);
+        }
+      })
+})
+
+Router.route('/questions/:round').get(function (req, res) {
+  Question.find({level: req.params.round}, function (err, questions) {
+    var Q = Math.floor(Math.random() * questions.length)
+    if (err) {
+      res.json({message: 'error finding questions'})
+    } else {
+      res.json(questions[Q]);
+    }
+  })
 })
 
 Router.route('/questions/:questionId/')

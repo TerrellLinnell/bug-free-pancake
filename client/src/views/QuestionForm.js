@@ -12,13 +12,13 @@ const QuestionForm = (props) => {
     )
   })
     return (
-      <div>
+      <div className='questionForm'>
         <h2>Level: {props.question.level}</h2>
-        <h2>Player: {props.game.players[0].name}</h2>
+        <h2>Player: {props.currPlayer.name}</h2>
         <h3>Question: {props.question.question}</h3>
         <Form onSubmit={props.onSubmitHandler}>
-            {Answers}
-          <Button type='submit' className='btn btn-success' >Submit Answer </Button>
+          {Answers}
+          <Button type='submit' className='btn btn-success'>Submit Answer</Button>
         </Form>
       </div>
     )
