@@ -16,8 +16,25 @@
 .gameHeader {
   display: flex;
   justify-content: space-around;
-  border: 4px solid black;
+  margin-top: 20px;
+  border: 8px double black;
+  animation: pulse 1s ease infinite;
 }
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    }
+
+  50% {
+    transform: scale(1.05);
+    }
+
+  100% {
+    transform: scale(1);
+    }
+  }
+
 
 .answerList {
   list-style-type: upper-alpha;
@@ -55,7 +72,26 @@ Home CSS
 Question CSS
 ==========================================================================*/
 
-.AlertButton {
+.AlertSuccess {
+  background-color: 	#98FB98;
+}
+
+.AlertItemsFlexBox {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-content: flex-start;
+  width: 100%;
+}
+
+.AlertButton {
+  align-self: flex-end;
+}
+
+.Alert {
+  display: flex;
+  justify-content: space-between;;
+  align-content: flex-start;
+  width: 100%;
+  border-radius: 10%;
+  border: 2px outset black;
 }

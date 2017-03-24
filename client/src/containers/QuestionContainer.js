@@ -42,10 +42,10 @@ getQuestions = () => {
     e.preventDefault();
     console.log(typeof(this.state.answer));
     if (this.state.answer === 'false') {
-      this.setState({alertColor: 'alert alert-danger'})
+      this.setState({alertColor: 'alert alert-danger Alert'})
       this.setState({message: 'false...😢'});
     } else if (this.state.answer === 'true') {
-      this.setState({alertColor: 'alert alert-succes'})
+      this.setState({alertColor: 'alert alert-success Alert AlertSuccess'})
       this.setState({message:'Correct!!😁'});
     }
   }
@@ -54,7 +54,13 @@ getQuestions = () => {
   render () {
     return (
       <div>
-        {this.state.message? <h3><Alert className={this.state.alertColor}>{this.state.message}<Button className='btn btn-primary AlertButton'> Next Question</Button></Alert></h3> : null}
+        {this.state.message?
+
+              <h3 className='AlertItemsFlexBox'>
+                <Alert className={this.state.alertColor}>{this.state.message}
+                  <Button className='btn btn-primary AlertButton'> Next Question</Button>
+                </Alert>
+              </h3> : null}
         {this.state.question && this.props.game ? <QuestionForm onChangeHandler={this.onChangeHandler} question={this.state.question} game={this.props.game} onSubmitHandler={this.onSubmitHandler}/> : null}
       </div>
     )
