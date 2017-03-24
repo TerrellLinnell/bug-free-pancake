@@ -10,7 +10,6 @@ class GameContainer extends Component {
 
     this.state = {
       game     :  null,
-      score    :  null,
       players  :  null,
       round    :  null,
       turn     :  0,
@@ -32,7 +31,7 @@ class GameContainer extends Component {
   }
 
   NextTurnAndRound = () => {
-    
+
   }
 
   // updatePlayerScore = () = {

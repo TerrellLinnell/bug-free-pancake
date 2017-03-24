@@ -22,3 +22,40 @@
 .answerList {
   list-style-type: upper-alpha;
 }
+
+.myContainer {
+  background-color: blanchedalmond;
+}
+/*==========================================================================
+Home CSS
+==========================================================================*/
+.HomeFlexBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerFormFlexBox {
+  align-self: center;
+  margin-top: 30px;
+}
+
+.gameStartButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.addPlayerButton {
+  background-color: blue;
+  color: white;
+}
+/*==========================================================================
+Question CSS
+==========================================================================*/
+
+.AlertButton {
+  display: flex;
+  justify-content: flex-end;
+}

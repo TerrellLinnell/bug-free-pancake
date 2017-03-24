@@ -7,7 +7,7 @@ const QuestionForm = (props) => {
     return (
       <div className='form-group'>
       <input name='answer' type='radio' value={item.correct} onChange={ (event) => props.onChangeHandler(event.target.value)}/>
-        <label> {item.answer} </label>
+        <label><h3> </h3>{item.answer} </label>
        </div>
     )
   })
