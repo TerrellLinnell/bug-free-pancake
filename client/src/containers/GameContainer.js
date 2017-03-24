@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import PlayerHeader from '../views/PlayerHeader';
+import Results from '../views/Results';
 
 class GameContainer extends Component {
 
@@ -65,6 +66,12 @@ class GameContainer extends Component {
       this.setState({round: round+=1})
       if (round === 4) {
         console.log('DONE');
+        var sortPlayers = this.state.players
+        sortPlayers.sort(function (a, b) {
+          return b.score - a.score;
+        });
+        this.setState({players: sortPlayers})
+        this.setState({complete: true})
       }
     } else {
       this.setState({currPlayer: players[this.state.turn]})
@@ -81,12 +88,18 @@ class GameContainer extends Component {
   // }
 
   render () {
-    return (
-      <div>
-        {this.state.game ? <PlayerHeader game={this.state.game} /> : null}
-        {this.props.children && React.cloneElement(this.props.children, {game: this.state.game, players: this.state.players, currPlayer: this.state.currPlayer, round: this.state.round, turn: this.state.turn, nextQuestion: this.nextQuestion})}
-      </div>
-    );
+    if (this.state.complete) {
+      return (
+        <Results players={this.state.players} />
+      )
+    } else {
+      return (
+        <div>
+          {this.state.game ? <PlayerHeader game={this.state.game} /> : null}
+          {this.props.children && React.cloneElement(this.props.children, {game: this.state.game, players: this.state.players, currPlayer: this.state.currPlayer, round: this.state.round, turn: this.state.turn, nextQuestion: this.nextQuestion})}
+        </div>
+      );
+    }
   }
 }
 
