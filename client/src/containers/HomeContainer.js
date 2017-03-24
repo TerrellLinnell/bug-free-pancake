@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import HomeForm from '../views/HomeForm';
 import $ from 'jquery';
+import PlayersDisplay from '../views/playersDisplay';
 
 class HomeContainer extends Component {
 
@@ -10,7 +11,7 @@ class HomeContainer extends Component {
 
     this.state = {
       game: null,
-      name: null
+      name: null,
     };
 
   }
@@ -51,12 +52,21 @@ class HomeContainer extends Component {
     }).done((data) => {
         this.getGameById();
         $('#playerName').val('');
+        this.setState(data)
     })
   }
   render () {
+    console.log(this.state.name);
+    console.log(this.state.game);
     return (
+      <div className='HomeFlexBox'>
+      <h1> Welcome to the code quiz game!</h1>
       <div>
         {this.state.game ? <HomeForm onSubmitHandler={this.onSubmitHandler} onChangeHandler={this.onChangeHandler} gameId={this.state.game._id}/> : null}
+      </div>
+      <div>
+        {this.state.players && this.state.game? <PlayersDisplay game={this.state.game}/> : null}
+      </div>
       </div>
     )
   }

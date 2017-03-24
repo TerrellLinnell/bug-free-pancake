@@ -47,11 +47,11 @@ class QuestionContainer extends Component {
     $('.alert').show();
     console.log(typeof(this.state.answer));
     if (this.state.answer === 'false') {
-      this.setState({alertColor: 'alert alert-danger'})
-      this.setState({message: 'false...'});
+      this.setState({alertColor: 'alert alert-danger Alert'})
+      this.setState({message: 'false...😢'});
     } else if (this.state.answer === 'true') {
-      this.setState({alertColor: 'alert alert-succes'})
-      this.setState({message:'correct'});
+      this.setState({alertColor: 'alert alert-success Alert AlertSuccess'})
+      this.setState({message:'Correct!!😁'});
     }
   }
 
@@ -63,8 +63,16 @@ class QuestionContainer extends Component {
   render () {
     return (
       <div>
-        {this.state.message ? <Alert className={this.state.alertColor}><div>{this.state.message}</div><Button bsStyle='primary' onClick={this.nextTurn}>Next Question</Button></Alert> : null}
+        
         {this.state.question && this.props.game && this.props.players && this.props.currPlayer ? <QuestionForm onChangeHandler={this.onChangeHandler} question={this.state.question} game={this.props.game} players={this.props.players} currPlayer={this.props.currPlayer} turn={this.props.turn} onSubmitHandler={this.onSubmitHandler}/> : null}
+
+        {this.state.message?
+
+              <h3 className='AlertItemsFlexBox'>
+                <Alert className={this.state.alertColor}>{this.state.message}
+                  <Button className='btn btn-primary AlertButton'> Next Question</Button>
+                </Alert>
+              </h3> : null}
       </div>
     )
   }

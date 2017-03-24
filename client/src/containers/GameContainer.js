@@ -9,6 +9,7 @@ class GameContainer extends Component {
     super(props);
 
     this.state = {
+
       game       :  null,
       players    :  null,
       currPlayer :  null,
@@ -68,6 +69,7 @@ class GameContainer extends Component {
     } else {
       this.setState({currPlayer: players[this.state.turn]})
     }
+
   }
 
   // updatePlayerScore = () = {
