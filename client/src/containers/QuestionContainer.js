@@ -63,14 +63,13 @@ class QuestionContainer extends Component {
   render () {
     return (
       <div>
-        
+
         {this.state.question && this.props.game && this.props.players && this.props.currPlayer ? <QuestionForm onChangeHandler={this.onChangeHandler} question={this.state.question} game={this.props.game} players={this.props.players} currPlayer={this.props.currPlayer} turn={this.props.turn} onSubmitHandler={this.onSubmitHandler}/> : null}
 
         {this.state.message?
-
               <h3 className='AlertItemsFlexBox'>
                 <Alert className={this.state.alertColor}>{this.state.message}
-                  <Button className='btn btn-primary AlertButton'> Next Question</Button>
+                  <Button className='btn btn-primary AlertButton' onClick={this.nextTurn}> Next Question</Button>
                 </Alert>
               </h3> : null}
       </div>
