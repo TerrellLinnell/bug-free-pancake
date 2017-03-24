@@ -33,12 +33,32 @@ class GameContainer extends Component {
     })
   }
 
-  nextQuestion = () => {
-    var turn = this.state.turn + 1
+  nextQuestion = (answer) => {
+    $('.questionForm').show();
+    $('.alert').hide();
     var players = this.state.players
     var round = this.state.round
-    this.setState({turn: turn})
-    if (turn === players.length) {
+    var scores = [0,100,200,300]
+    this.setState({turn: this.state.turn+=1})
+    console.log('var round: ' + round + ' turn state: ' + this.state.turn);
+    if (answer === "true") {
+      console.log('correct');
+      var searchTerm = this.state.currPlayer.name
+      var test = [1,2,3]
+      var index = -1
+      for(var i = 0; i < players.length; i++) {
+        if (players[i].name === searchTerm) {
+          index = i;
+          players[i].score += scores[round]
+          break;
+        }
+      }
+      this.setState({players: players})
+      console.log(this.state.players);
+    } else {
+      console.log('wrong');
+    }
+    if (this.state.turn === players.length) {
       this.setState({currPlayer: players[0]})
       this.setState({turn: 0})
       this.setState({round: round+=1})
@@ -46,7 +66,7 @@ class GameContainer extends Component {
         console.log('DONE');
       }
     } else {
-      this.setState({currPlayer: players[turn]})
+      this.setState({currPlayer: players[this.state.turn]})
     }
   }
 

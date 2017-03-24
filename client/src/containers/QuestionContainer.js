@@ -16,30 +16,35 @@ class QuestionContainer extends Component {
     }
   }
 
-componentWillMount = () => {
-  this.getQuestions();
-}
-
-
-getQuestions = () => {
-  $.ajax({
-    url: '/api/questions',
-    method: 'GET'
-  }).done((question) => {
-    this.setState({question});
-    console.log(question);
-  })
-}
-
-  onChangeHandler = (value) => {
-    console.log(value);
-    if(value) {
-      this.setState({answer: value})
+  componentWillMount = () => {
+    this.getQuestions();
   }
-}
+
+
+  getQuestions = () => {
+    var self = this
+    setTimeout(function() {
+      $.ajax({
+        url: '/api/questions/' + self.props.round,
+        method: 'GET'
+      }).done((question) => {
+        self.setState({question});
+        console.log(question);
+      })
+    }, 0)
+  }
+
+    onChangeHandler = (value) => {
+      console.log(value);
+      if(value) {
+        this.setState({answer: value})
+    }
+  }
 
   onSubmitHandler = (e) => {
     e.preventDefault();
+    $('.questionForm').hide();
+    $('.alert').show();
     console.log(typeof(this.state.answer));
     if (this.state.answer === 'false') {
       this.setState({alertColor: 'alert alert-danger'})
@@ -50,11 +55,15 @@ getQuestions = () => {
     }
   }
 
+  nextTurn = (event) => {
+    this.props.nextQuestion(this.state.answer);
+    this.getQuestions();
+  }
 
   render () {
     return (
       <div>
-        {this.state.message? <Alert className={this.state.alertColor}><div>{this.state.message}</div><Button bsStyle='primary' onClick={ () => this.props.nextQuestion()}>Next Question</Button></Alert> : null}
+        {this.state.message ? <Alert className={this.state.alertColor}><div>{this.state.message}</div><Button bsStyle='primary' onClick={this.nextTurn}>Next Question</Button></Alert> : null}
         {this.state.question && this.props.game && this.props.players && this.props.currPlayer ? <QuestionForm onChangeHandler={this.onChangeHandler} question={this.state.question} game={this.props.game} players={this.props.players} currPlayer={this.props.currPlayer} turn={this.props.turn} onSubmitHandler={this.onSubmitHandler}/> : null}
       </div>
     )
