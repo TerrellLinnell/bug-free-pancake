@@ -18,7 +18,7 @@ render((
       <IndexRoute component={HomeContainer}/>
       <Route path='/game/:gameId'  component={GameContainer}>
         <Route path="/game/:gameId/question" component={QuestionContainer} >
-          <Route path="/game/:gameId/questionResponse" component={QuestionResponse}/>
+          <Route path="/game/:gameId/question/questionResponse" component={QuestionResponse}/>
         </Route>
         <Route path='/results' component={Results} />
       </Route>

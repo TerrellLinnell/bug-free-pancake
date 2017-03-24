@@ -13,7 +13,7 @@ class GameContainer extends Component {
       score    :  null,
       players  :  null,
       round    :  null,
-      turn     :  null,
+      turn     :  0,
       complete :  false
     }
   }
@@ -29,6 +29,10 @@ class GameContainer extends Component {
     }).done((game) => {
       this.setState({game});
     })
+  }
+
+  NextTurnAndRound = () => {
+    
   }
 
   // updatePlayerScore = () = {
