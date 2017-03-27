@@ -75,7 +75,7 @@ correct4  : 0 or 1
 
 * repeat this step to add more questions to tailor the game to your needs
 
-![Alt text](bug-free-pancake/Screen Shot 2017-03-27 at 10.48.21 AM.png?raw=true)
+![Alt text](https://github.com/TerrellLinnell/bug-free-pancake/Screen Shot 2017-03-27 at 10.48.21 AM.png)
 
 
 ##
