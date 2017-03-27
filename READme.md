@@ -60,21 +60,32 @@ Password: (type your password here)
 * then type into the url bar `localhost:3001/api/questions`
 
 * Click on the body tab and type in the parameters:
+
 level     : an integer 1 2 or 3
+
 question  : the question text
+
 answer    : choice A
+
 correct   : 0 or 1 to say true or false 1 is true 2 is false
+
 answer2   : choice B
+
 correct2  : 0 or 1
+
 answer3   : choice C
+
 correct3  : 0 or 1
+
 answer4   : choice D
+
 correct4  : 0 or 1
 
 * then click send and you now have a question made
 
 * repeat this step to add more questions to tailor the game to your needs
 
-* ![Alt text](/bug-free-pancake/Screen Shot 2017-03-27 at 10.48.21 AM.png?raw=true "Optional Title")
+![](Screenshots)
+![Snapshots]:https://github.com/TerrellLinnell/bug-free-pancake/blob/master/Screen%20Shot%202017-03-27%20at%2010.48.21%20AM.png
 
 ##
