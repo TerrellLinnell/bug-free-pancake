@@ -85,7 +85,6 @@ correct4  : 0 or 1
 
 * repeat this step to add more questions to tailor the game to your needs
 
-![](Screenshots)
-![Screenshots]:file://github.com/TerrellLinnell/bug-free-pancake/blob/master/Screen%20Shot%202017-03-27%20at%2010.48.21%20AM.png
+![](./Screen%20Shot%202017-03-27%20at%2010.48.21%20AM.png)
 
 ##
