@@ -6,9 +6,9 @@ const QuestionForm = (props) => {
   var Answers = props.question.answers.map(function (item) {
     return (
       <div className='form-group'>
-      <input name='answer' type='radio' value={item.correct} onChange={ (event) => props.onChangeHandler(event.target.value)}/>
+        <input name='answer' type='radio' value={item.correct} onChange={ (event) => props.onChangeHandler(event.target.value)}/>
         <label><h3> </h3>{item.answer} </label>
-       </div>
+      </div>
     )
   })
     return (
