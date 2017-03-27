@@ -51,13 +51,15 @@ Password: (type your password here)
 
 ## How to download our questions or create your own questions  
 
-* To Install the Predefined Questions:
+#### To Install the Predefined Questions:
 
 With MongoDB installed, go to the “data” directory with the terminal and run the command:
 
 `mongoimport --db quiz --collection questions --drop --stopOnError --file data/questions.json --jsonArray`
 
 This will create a quiz database if one does not exist yet, and will either create or replace any existing questions collection.
+
+#### to create your own questions
 
 * You will need to download PostMan from the app store
 
