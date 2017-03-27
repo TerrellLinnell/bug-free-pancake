@@ -6,7 +6,6 @@ const HomeForm = (props) => {
   return (
     <div>
       <div>
-      <h4> maximum players: 4 </h4>
         <Form className='playerFormFlexBox' onSubmit={props.onSubmitHandler}>
           <input id='playerName' type='text' placeholder='player name' onChange={(event) => props.onChangeHandler('name', event.target.value)} />
           <button type='submit' className='addPlayerButton'> + </button>
