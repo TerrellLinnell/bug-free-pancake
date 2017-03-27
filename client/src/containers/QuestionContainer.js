@@ -35,7 +35,9 @@ class QuestionContainer extends Component {
 
     onChangeHandler = (value) => {
       if(value) {
-        this.setState({answer: value})
+        console.log(value);
+        this.setState({answer: value});
+        console.log(this.state.answer);
     }
   }
 
@@ -43,21 +45,20 @@ class QuestionContainer extends Component {
     e.preventDefault();
     $('.questionForm').hide();
     $('.alert').show();
-    console.log(typeof(this.state.answer));
+    console.log(this.state.answer);
     if (this.state.answer === 'false') {
       this.setState({alertColor: 'alert alert-danger Alert'})
       this.setState({message: 'false...😢'});
-      this.setState({answer: null})
     } else if (this.state.answer === 'true') {
       this.setState({alertColor: 'alert alert-success Alert AlertSuccess'})
       this.setState({message:'Correct!!😁'});
-      this.setState({answer: null})
     }
   }
 
   nextTurn = (event) => {
     this.props.nextQuestion(this.state.answer);
     this.getQuestions();
+    this.setState({answer: null})
   }
 
   render () {
