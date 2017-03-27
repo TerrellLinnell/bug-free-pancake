@@ -29,13 +29,11 @@ class QuestionContainer extends Component {
         method: 'GET'
       }).done((question) => {
         self.setState({question});
-        console.log(question);
       })
     }, 0)
   }
 
     onChangeHandler = (value) => {
-      console.log(value);
       if(value) {
         this.setState({answer: value})
     }
@@ -49,9 +47,11 @@ class QuestionContainer extends Component {
     if (this.state.answer === 'false') {
       this.setState({alertColor: 'alert alert-danger Alert'})
       this.setState({message: 'false...😢'});
+      this.setState({answer: null})
     } else if (this.state.answer === 'true') {
       this.setState({alertColor: 'alert alert-success Alert AlertSuccess'})
       this.setState({message:'Correct!!😁'});
+      this.setState({answer: null})
     }
   }
 
@@ -64,8 +64,7 @@ class QuestionContainer extends Component {
     return (
       <div>
 
-        {this.state.question && this.props.game && this.props.players && this.props.currPlayer ? <QuestionForm onChangeHandler={this.onChangeHandler} question={this.state.question} game={this.props.game} players={this.props.players} currPlayer={this.props.currPlayer} turn={this.props.turn} onSubmitHandler={this.onSubmitHandler}/> : null}
-
+        {this.state.question && this.props.game && this.props.players && this.props.currPlayer ? <QuestionForm onChangeHandler={this.onChangeHandler} question={this.state.question} game={this.props.game} players={this.props.players} currPlayer={this.props.currPlayer} turn={this.props.turn} answer={this.state.answer} onSubmitHandler={this.onSubmitHandler}/> : null}
         {this.state.message?
               <h3 className='AlertItemsFlexBox'>
                 <Alert className={this.state.alertColor}>{this.state.message}
