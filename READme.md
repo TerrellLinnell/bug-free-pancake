@@ -49,7 +49,15 @@ Password: (type your password here)
 * Then in a new window type `npm run dev` this will start the server at localhost:3000
 
 
-## How to create your own questions
+## How to download our questions or create your own questions  
+
+* To Install the Predefined Questions:
+
+With MongoDB installed, go to the “data” directory with the terminal and run the command:
+
+`mongoimport --db quiz --collection questions --drop --stopOnError --file data/questions.json --jsonArray`
+
+This will create a quiz database if one does not exist yet, and will either create or replace any existing questions collection.
 
 * You will need to download PostMan from the app store
 
@@ -61,7 +69,7 @@ Password: (type your password here)
 
 * Click on the body tab and type in the parameters:
 
-level     : an integer 1 2 or 3
+level     : an integer 1, 2, or 3
 
 question  : the question text
 
@@ -86,5 +94,3 @@ correct4  : 0 or 1
 * repeat this step to add more questions to tailor the game to your needs
 
 ![](./Screen%20Shot%202017-03-27%20at%2010.48.21%20AM.png)
-
-##
