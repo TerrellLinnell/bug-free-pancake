@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/blog');
+mongoose.connect('mongodb://localhost/quiz');
 
 var gameRoutes = require('./routes/game');
 
