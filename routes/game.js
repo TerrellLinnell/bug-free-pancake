@@ -109,8 +109,10 @@ Router.route('/questions')
       })
 })
 
-Router.route('/questions/:round').get(function (req, res) {
-  Question.find({level: req.params.round}, function (err, questions) {
+Router.route('/questions/:round').post(function (req, res) {
+  var answered = JSON.parse(req.body.finished)
+  Question.find({level: req.params.round, id: {$nin: answered}}, function (err, questions) {
+    console.log(questions.length);
     var Q = Math.floor(Math.random() * questions.length)
     if (err) {
       res.json({message: 'error finding questions'})
