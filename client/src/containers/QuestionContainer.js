@@ -7,7 +7,6 @@ class QuestionContainer extends Component {
 
   constructor (props) {
     super(props)
-
     this.state = {
       question: null,
       answer: null,
@@ -24,7 +23,6 @@ class QuestionContainer extends Component {
   getQuestions = () => {
     var self = this
     setTimeout(function() {
-      console.log(self.state.questionsAsked);
       $.ajax({
         url: '/api/questions/' + self.props.round,
         method: 'POST',
@@ -34,19 +32,17 @@ class QuestionContainer extends Component {
       }).done((question) => {
         self.setState({question});
         var answered = self.state.questionsAsked
-        console.log('question id: ' + question.id);
         answered.push(question.id)
         self.setState({questionsAsked: answered})
-        console.log(self.state.questionsAsked);
       })
     }, 0)
   }
 
-    onChangeHandler = (value) => {
-      if(value) {
-        console.log(value);
-        this.setState({answer: value});
-        console.log(this.state.answer);
+  onChangeHandler = (value) => {
+    if(value) {
+      console.log(value);
+      this.setState({answer: value});
+      console.log(this.state.answer);
     }
   }
 
@@ -65,7 +61,11 @@ class QuestionContainer extends Component {
   }
 
   nextTurn = (event) => {
+    // passes answer to nextQuestion function in GameContainer.js to update player score, turn, and round,
+    // and to move the game to the next player's turn
     this.props.nextQuestion(this.state.answer);
+
+    // getQuestions() has a minimal setTimeout delay, because it depends on nextQuestion() incrementing the round first
     this.getQuestions();
     this.setState({answer: null})
   }
