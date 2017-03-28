@@ -5,7 +5,7 @@ const PlayerHeader = (props) => {
   console.log(props);
   var players = props.game.players.map(function (item) {
     return (
-      <div>
+      <div key={item.name}>
         <h1> {item.name}: {item.score} </h1>
       </div>
     );

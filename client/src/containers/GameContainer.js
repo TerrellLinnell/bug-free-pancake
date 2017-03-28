@@ -16,7 +16,7 @@ class GameContainer extends Component {
       currPlayer :  null,
       round      :  1,
       turn       :  0,
-      complete   :  false
+      complete   :  false,
     }
   }
 
@@ -43,15 +43,19 @@ class GameContainer extends Component {
     var scores = [0,100,200,300]
     this.setState({turn: this.state.turn+=1})
     console.log('var round: ' + round + ' turn state: ' + this.state.turn);
+    console.log(answer);
     if (answer === "true") {
       console.log('correct');
       var searchTerm = this.state.currPlayer.name
       var test = [1,2,3]
       var index = -1
       for(var i = 0; i < players.length; i++) {
+        console.log(players[i].name)
         if (players[i].name === searchTerm) {
+          console.log("Adding to the players score")
           index = i;
           players[i].score += scores[round]
+          console.log(players[i].score);
           break;
         }
       }

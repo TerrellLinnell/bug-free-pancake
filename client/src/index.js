@@ -5,8 +5,6 @@ import './index.css';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import HomeContainer from './containers/HomeContainer';
 import GameContainer from './containers/GameContainer';
-// import AnswerContainer from './containers/AnswerContainer';
-import QuestionForm from './views/QuestionForm';
 import QuestionContainer from './containers/QuestionContainer';
 import QuestionResponse from './views/QuestionResponse';
 import Results from './views/Results';
