@@ -1,13 +1,12 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router';
 
 const QuestionForm = (props) => {
   var Answers = props.question.answers.map(function (item) {
     return (
-      <div className='form-group'>
+      <div key={item.answer} className='form-group'>
         <input name='answer' type='radio' value={item.correct} onChange={ (event) => props.onChangeHandler(event.target.value)}/>
-        <label><h3> </h3>{item.answer} </label>
+        <label className='answerText'>{item.answer} </label>
       </div>
     )
   })
@@ -18,7 +17,7 @@ const QuestionForm = (props) => {
         <h3>Question: {props.question.question}</h3>
         <Form onSubmit={props.onSubmitHandler}>
           {Answers}
-          <Button type='submit' className='btn btn-success'>Submit Answer</Button>
+          {props.answer ? <Button type='submit' className='btn btn-success'>Submit Answer</Button> : null}
         </Form>
       </div>
     )

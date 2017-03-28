@@ -95,3 +95,7 @@ Question CSS
   border-radius: 10%;
   border: 2px outset black;
 }
+
+.answerText {
+  margin-left: 10px;
+}
