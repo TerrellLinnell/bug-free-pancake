@@ -8,11 +8,12 @@ class QuestionContainer extends Component {
   constructor (props) {
     super(props)
 
-    this.state={
+    this.state = {
       question: null,
       answer: null,
       message: null,
-      alertColor: null
+      alertColor: null,
+      questionsAsked: []
     }
   }
 
@@ -20,16 +21,23 @@ class QuestionContainer extends Component {
     this.getQuestions();
   }
 
-
   getQuestions = () => {
     var self = this
     setTimeout(function() {
+      console.log(self.state.questionsAsked);
       $.ajax({
         url: '/api/questions/' + self.props.round,
-        method: 'GET'
+        method: 'POST',
+        data: {
+          finished: JSON.stringify(self.state.questionsAsked)
+        }
       }).done((question) => {
         self.setState({question});
-        console.log(question);
+        var answered = self.state.questionsAsked
+        console.log('question id: ' + question.id);
+        answered.push(question.id)
+        self.setState({questionsAsked: answered})
+        console.log(self.state.questionsAsked);
       })
     }, 0)
   }

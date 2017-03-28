@@ -1,5 +1,6 @@
 [
   {
+    id: 1,
     level: 1,
     question: 'Inside which HTML element do we put the JavaScript?',
     answers: [
@@ -10,6 +11,7 @@
     ]
   },
   {
+    id: 2,
     level: 1,
     question: 'What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?',
     answers: [
@@ -20,6 +22,7 @@
     ]
   },
   {
+    id: 3,
     level: 1,
     question: 'Where is the correct place to insert a JavaScript?',
     answers: [
@@ -29,6 +32,7 @@
     ]
   },
   {
+    id: 4,
     level: 1,
     question: 'What is the correct syntax for referring to an external script called "xxx.js"?',
     answers: [
@@ -38,6 +42,7 @@
     ]
   },
   {
+    id: 5,
     level: 1,
     question: 'The external JavaScript file must contain the <script> tag.',
     answers: [
@@ -46,6 +51,7 @@
     ]
   },
   {
+    id: 6,
     level: 1,
     question: 'How do you write "Hello World" in an alert box?',
     answers: [
@@ -56,6 +62,7 @@
     ]
   },
   {
+    id: 7,
     level: 1,
     question: 'How do you create a function in JavaScript?',
     answers: [
@@ -65,6 +72,7 @@
     ]
   },
   {
+    id: 8,
     level: 1,
     question: 'How do you call a function named "myFunction"?',
     answers: [
@@ -74,6 +82,7 @@
     ]
   },
   {
+    id: 9,
     level: 2,
     question: 'How to write an IF statement in JavaScript?',
     answers: [
@@ -84,6 +93,7 @@
     ]
   },
   {
+    id: 10,
     level: 2,
     question: 'How to write an IF statement for executing some code if "i" is NOT equal to 5?',
     answers: [
@@ -94,6 +104,7 @@
     ]
   },
   {
+    id: 11,
     level: 2,
     question: 'How does a WHILE loop start?',
     answers: [
@@ -103,6 +114,7 @@
     ]
   },
   {
+    id: 12,
     level: 2,
     question: 'How does a FOR loop start?',
     answers: [
@@ -113,6 +125,7 @@
     ]
   },
   {
+    id: 13,
     level: 2,
     question: 'How can you add a comment in a JavaScript?',
     answers: [
@@ -122,6 +135,7 @@
     ]
   },
   {
+    id: 14,
     level: 2,
     question: 'How to insert a comment that has more than one line?',
     answers: [
@@ -131,6 +145,7 @@
     ]
   },
   {
+    id: 15,
     level: 2,
     question: 'What is the correct way to write a JavaScript array?',
     answers: [
@@ -141,6 +156,7 @@
     ]
   },
   {
+    id: 16,
     level: 2,
     question: 'How do you round the number 7.25, to the nearest integer?',
     answers: [
@@ -151,6 +167,7 @@
     ]
   },
   {
+    id: 17,
     level: 3,
     question: 'How do you find the number with the highest value of x and y?',
     answers: [
@@ -161,6 +178,7 @@
     ]
   },
   {
+    id: 18,
     level: 3,
     question: 'What is the correct JavaScript syntax for opening a new window called "w2" ?',
     answers: [
@@ -169,6 +187,7 @@
     ]
   },
   {
+    id: 19,
     level: 3,
     question: 'JavaScript is the same as Java.',
     answers: [
@@ -177,6 +196,7 @@
     ]
   },
   {
+    id: 20,
     level: 3,
     question: 'How can you detect the client\'s browser name?',
     answers: [
@@ -186,6 +206,7 @@
     ]
   },
   {
+    id: 21,
     level: 3,
     question: 'Which event occurs when the user clicks on an HTML element?',
     answers: [
@@ -196,6 +217,7 @@
     ]
   },
   {
+    id: 22,
     level: 3,
     question: 'How do you declare a JavaScript variable?',
     answers: [
@@ -205,6 +227,7 @@
     ]
   },
   {
+    id: 23,
     level: 3,
     question: 'Which operator is used to assign a value to a variable?',
     answers: [
@@ -215,6 +238,7 @@
     ]
   },
   {
+    id: 24,
     level: 3,
     question: 'What will the following code return: Boolean(10 > 9)',
     answers: [
@@ -224,6 +248,7 @@
     ]
   },
   {
+    id: 25,
     level: 3,
     question: 'Is JavaScript case-sensitive?',
     answers: [
