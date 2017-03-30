@@ -16,11 +16,10 @@ class QuestionContainer extends Component {
       alertColor:     null,
       questionsAsked: []
     }
+
   }
 
-  componentWillMount = () => {
-    this.getQuestions();
-  }
+  componentWillMount = () => {this.getQuestions()};
 
   getQuestions = () => {
     setTimeout(() => {
@@ -72,7 +71,6 @@ class QuestionContainer extends Component {
   render () {
     return (
       <div>
-
         {this.state.question && this.props.game && this.props.players && this.props.currPlayer ? <QuestionForm onChangeHandler={this.onChangeHandler} question={this.state.question} game={this.props.game} players={this.props.players} currPlayer={this.props.currPlayer} turn={this.props.turn} answer={this.state.answer} onSubmitHandler={this.onSubmitHandler}/> : null}
         {this.state.message?
               <h3 className='AlertItemsFlexBox'>

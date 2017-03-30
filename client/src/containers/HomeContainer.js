@@ -12,7 +12,8 @@ class HomeContainer extends Component {
     this.state = {
       game: null,
       name: null,
-    };
+    }
+
   }
 
   componentWillMount = () => {
@@ -20,9 +21,7 @@ class HomeContainer extends Component {
       url:    '/api/games',
       method: 'POST',
       data:   {}
-    }).done((game) => {
-        this.setState({game});
-    })
+    }).done(game => this.setState({game}));
   }
 
   onChangeHandler = (field, value) => {
@@ -35,9 +34,7 @@ class HomeContainer extends Component {
     $.ajax({
       url:    '/api/games/' + this.state.game._id,
       method: 'GET',
-    }).done((game) => {
-      this.setState({game});
-    })
+    }).done(game => this.setState({game}));
   }
 
   onSubmitHandler = (e) => {
