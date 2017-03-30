@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import $ from 'jquery';
 import PlayerHeader from '../views/PlayerHeader';
 import Results from '../views/Results';
@@ -10,7 +10,6 @@ class GameContainer extends Component {
     super(props);
 
     this.state = {
-
       game       :  null,
       players    :  null,
       currPlayer :  null,
@@ -26,12 +25,10 @@ class GameContainer extends Component {
 
   getGameById = () => {
     $.ajax({
-      url: '/api/games/' + this.props.params.gameId,
+      url:    '/api/games/' + this.props.params.gameId,
       method: 'GET'
     }).done((game) => {
-      this.setState({game});
-      this.setState({players: game.players})
-      this.setState({currPlayer: game.players[0]})
+      this.setState({game: game, players: game.players, currPlayer: game.players[0]});
     })
   }
 
@@ -77,7 +74,7 @@ class GameContainer extends Component {
         this.setState({players: sortPlayers, complete: true})
       }
     } else {
-      
+
       // update current player
       this.setState({currPlayer: players[this.state.turn]})
     }

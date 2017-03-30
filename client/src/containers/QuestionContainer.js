@@ -6,12 +6,14 @@ import {Alert, Button} from 'react-bootstrap';
 class QuestionContainer extends Component {
 
   constructor (props) {
+
     super(props)
+
     this.state = {
-      question: null,
-      answer: null,
-      message: null,
-      alertColor: null,
+      question:       null,
+      answer:         null,
+      message:        null,
+      alertColor:     null,
       questionsAsked: []
     }
   }
@@ -21,28 +23,24 @@ class QuestionContainer extends Component {
   }
 
   getQuestions = () => {
-    var self = this
-    setTimeout(function() {
+    setTimeout(() => {
       $.ajax({
-        url: '/api/questions/' + self.props.round,
+        url:    '/api/questions/' + this.props.round,
         method: 'POST',
-        data: {
-          finished: JSON.stringify(self.state.questionsAsked)
-        }
+        data:   {
+                  finished: JSON.stringify(this.state.questionsAsked)
+                }
       }).done((question) => {
-        self.setState({question});
-        var answered = self.state.questionsAsked
+        var answered = this.state.questionsAsked
         answered.push(question.id)
-        self.setState({questionsAsked: answered})
+        this.setState({question: question, questionsAsked: answered})
       })
     }, 0)
   }
 
   onChangeHandler = (value) => {
-    if(value) {
-      console.log(value);
+    if (value) {
       this.setState({answer: value});
-      console.log(this.state.answer);
     }
   }
 
@@ -50,13 +48,10 @@ class QuestionContainer extends Component {
     e.preventDefault();
     $('.questionForm').hide();
     $('.alert').show();
-    console.log(this.state.answer);
     if (this.state.answer === 'false') {
-      this.setState({alertColor: 'alert alert-danger Alert'})
-      this.setState({message: 'false...😢'});
+      this.setState({message: 'false...😢', alertColor: 'alert alert-danger Alert'})
     } else if (this.state.answer === 'true') {
-      this.setState({alertColor: 'alert alert-success Alert AlertSuccess'})
-      this.setState({message:'Correct!!😁'});
+      this.setState({message:'Correct!!😁', alertColor: 'alert alert-success Alert AlertSuccess'})
     }
   }
 

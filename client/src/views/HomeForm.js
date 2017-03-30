@@ -1,6 +1,6 @@
 import React from 'react';
-import { Form } from 'react-bootstrap';
-import { Link } from 'react-router';
+import {Form} from 'react-bootstrap';
+import {Link} from 'react-router';
 
 const HomeForm = (props) => {
   return (
@@ -12,7 +12,7 @@ const HomeForm = (props) => {
         </Form>
       </div>
       <div className='gameStartButton'>
-        <Link className='btn btn-success' to={`/game/${props.gameId}/question` }>Start Game</Link>
+        <Link className='btn btn-success' to={`/game/${props.gameId}/question`}>Start Game</Link>
       </div>
     </div>
 

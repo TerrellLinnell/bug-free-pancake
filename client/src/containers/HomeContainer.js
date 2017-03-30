@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import HomeForm from '../views/HomeForm';
 import $ from 'jquery';
 import PlayersDisplay from '../views/playersDisplay';
@@ -13,14 +13,13 @@ class HomeContainer extends Component {
       game: null,
       name: null,
     };
-
   }
 
   componentWillMount = () => {
     $.ajax({
-      url: '/api/games',
+      url:    '/api/games',
       method: 'POST',
-      data: {}
+      data:   {}
     }).done((game) => {
         this.setState({game});
     })
@@ -34,7 +33,7 @@ class HomeContainer extends Component {
 
   getGameById = () => {
     $.ajax({
-      url: '/api/games/' + this.state.game._id,
+      url:    '/api/games/' + this.state.game._id,
       method: 'GET',
     }).done((game) => {
       this.setState({game});
@@ -44,11 +43,11 @@ class HomeContainer extends Component {
   onSubmitHandler = (e) => {
     e.preventDefault();
     $.ajax({
-      url: `/api/${this.state.game._id}/players`,
+      url:    `/api/${this.state.game._id}/players`,
       method: 'POST',
-      data: {
-        name: this.state.name
-      }
+      data:   {
+                name: this.state.name
+              }
     }).done((data) => {
         this.getGameById();
         $('#playerName').val('');
@@ -56,8 +55,6 @@ class HomeContainer extends Component {
     })
   }
   render () {
-    console.log(this.state.name);
-    console.log(this.state.game);
     return (
       <div className='HomeFlexBox'>
       <h1> Welcome to the code quiz game!</h1>

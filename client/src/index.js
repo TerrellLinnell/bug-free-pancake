@@ -1,8 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 import App from './App';
-import './index.css';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import './App.css';
+import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import HomeContainer from './containers/HomeContainer';
 import GameContainer from './containers/GameContainer';
 import QuestionContainer from './containers/QuestionContainer';
@@ -23,18 +23,3 @@ render((
     </Route>
   </Router>
 ), document.getElementById('root'));
-
-
-
-// Game {state of everything}
-//   - ActiveQuestion & Player
-//   - Correct/Incorrect Comp
-//   - Final Results
-
-//
-// Player picks answer
-//
-// if answer is correct ShowCorrectModal
-// If answer is incorrect show InCorrectModal.
-//
-// NEXT Submits update to player score, bumps to next question and next player.

@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const PlayerHeader = (props) => {
-  console.log(props);
   var players = props.game.players.map(function (item) {
     return (
       <div key={item.name}>
