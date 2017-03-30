@@ -1,7 +1,7 @@
-var express = require('express');
-var Game = require('../models/game');
-var Player = require('../models/player');
-var Game = require('../models/game');
+var express  = require('express');
+var Game     = require('../models/game');
+var Player   = require('../models/player');
+var Game     = require('../models/game');
 var Question = require('../models/question');
 
 var Router = new express.Router();

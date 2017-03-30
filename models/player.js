@@ -1,9 +1,8 @@
 var mongoose = require('mongoose');
-
-var Schema = mongoose.Schema;
+var Schema   = mongoose.Schema;
 
 var PlayerSchema = new Schema ({
-  name: String,
+  name:  String,
   score: {type: Number, default: 0}
 });
 
