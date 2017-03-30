@@ -24,6 +24,8 @@ class QuestionContainer extends Component {
 
   getQuestions = () => {
     setTimeout(() => {
+      console.log("Running the get questions ajax.");
+      console.log('questionsAsked: ', this.state.questionsAsked);
       $.ajax({
         url:    '/api/questions/' + this.props.round,
         method: 'POST',
@@ -31,8 +33,9 @@ class QuestionContainer extends Component {
                   finished: JSON.stringify(this.state.questionsAsked)
                 }
       }).done((question) => {
+        console.log(question);
         var answered = this.state.questionsAsked
-        answered.push(question.id)
+        answered.push(question._id);
         this.setState({question: question, questionsAsked: answered})
       })
     }, 0)
@@ -56,6 +59,7 @@ class QuestionContainer extends Component {
   }
 
   nextTurn = (event) => {
+    console.log('running nextTurn');
     // passes answer to nextQuestion function in GameContainer.js to update player score, turn, and round,
     // and to move the game to the next player's turn
     this.props.nextQuestion(this.state.answer);

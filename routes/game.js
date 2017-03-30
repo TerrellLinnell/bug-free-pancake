@@ -110,7 +110,8 @@ Router.route('/questions')
 })
 
 Router.route('/questions/:round').post(function (req, res) {
-  var answered = JSON.parse(req.body.finished)
+  var answered = JSON.parse(req.body.finished);
+  console.log(answered);
   Question.find({level: req.params.round, id: {$nin: answered}}, function (err, questions) {
     console.log(questions.length);
     var Q = Math.floor(Math.random() * questions.length)
