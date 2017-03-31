@@ -1,18 +1,15 @@
-var express  = require('express');
-var Game     = require('../models/game');
-var Player   = require('../models/player');
-var Game     = require('../models/game');
-var Question = require('../models/question');
+const express  = require('express');
+const Game     = require('../models/game');
+const Player   = require('../models/player');
+const Question = require('../models/question');
 
-var Router = new express.Router();
+const Router = new express.Router();
 
-Router.use(function (req, res, next) {
-  return next();
-});
+Router.use((req, res, next) => next());
 
 Router.route('/questions')
-  .post(function (req, res) {
-    var question = new Question ({
+  .post((req, res) => {
+    const question = new Question ({
       level: req.body.level,
       question: req.body.question,
       answers: [
@@ -34,7 +31,7 @@ Router.route('/questions')
         }
       ]
     })
-    question.save(function (error, question) {
+    question.save((error, question) => {
       if (error) {
         res.staus(500).send(error, {message: 'error saving question'});
       } else {
@@ -42,9 +39,9 @@ Router.route('/questions')
       }
     })
   })
-  .get(function (req, res) {
-      Question.find((req.body.ActiveRound === req.body.Level), function (error, questions) {
-        var Q = Math.floor(Math.random() * questions.length)
+  .get((req, res) => {
+      Question.find((req.body.ActiveRound === req.body.Level), (error, questions) => {
+        const Q = Math.floor(Math.random() * questions.length)
         if (error) {
           res.status(500).send(error, {message: 'error finding questions'});
         } else {
@@ -53,12 +50,11 @@ Router.route('/questions')
       })
 })
 
-Router.route('/questions/:round').post(function (req, res) {
-  var answered = JSON.parse(req.body.finished);
-  console.log(answered);
-  Question.find({level: req.params.round, id: {$nin: answered}}, function (error, questions) {
-    console.log(questions.length);
-    var Q = Math.floor(Math.random() * questions.length)
+Router.route('/questions/:round')
+.post((req, res) => {
+  const answered = JSON.parse(req.body.finished);
+  Question.find({level: req.params.round, id: {$nin: answered}}, (error, questions) => {
+    const Q = Math.floor(Math.random() * questions.length)
     if (error) {
       res.status(500).send(error, {message: 'error finding questions'});
     } else {
@@ -68,8 +64,8 @@ Router.route('/questions/:round').post(function (req, res) {
 })
 
 Router.route('/questions/:questionId/')
-.delete(function (req, res) {
-  Question.remove({_id: req.params.questionId}, function (error) {
+.delete((req, res) => {
+  Question.remove({_id: req.params.questionId}, (error) => {
     if (error) {
       res.status(500).send(error, {message: 'error deleting question'});
     } else {
@@ -77,8 +73,8 @@ Router.route('/questions/:questionId/')
     }
   })
 })
-.get(function (req, res) {
-  Question.findById({_id: req.params.questionId}, function (error, data) {
+.get((req, res) => {
+  Question.findById({_id: req.params.questionId}, (error, data) => {
     if (error) {
       res.status(500).send(error, {message: 'Error getting question'});
     } else {

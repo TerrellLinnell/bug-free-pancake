@@ -1,22 +1,19 @@
-var express  = require('express');
-var Game     = require('../models/game');
-var Player   = require('../models/player');
-var Game     = require('../models/game');
-var Question = require('../models/question');
+const express  = require('express');
+const Game     = require('../models/game');
+const Player   = require('../models/player');
+const Question = require('../models/question');
 
-var Router = new express.Router();
+const Router = new express.Router();
 
-Router.use(function (req, res, next) {
-  return next();
-});
+Router.use((req, res, next) => next());
 
 Router.route('/')
-  .get(function(req, res){
+  .get((req, res) => {
     Player.find()
       .populate({
         path:'name'
       })
-      .exec(function(error, players){
+      .exec((error, players) => {
         if (error) {
           res.status(500).send(error);
         } else {
@@ -24,13 +21,13 @@ Router.route('/')
         }
       });
   })
-  .post(function(req, res){
-    var game = new Game({
+  .post((req, res) => {
+    const game = new Game({
       activeRound: 0,
       players: req.body,
       complete: 0
     });
-    game.save(function(error, game){
+    game.save((error, game) => {
       if (error) {
         res.status(500).send(error, { message: 'there was an error saving the game' });
       } else {
@@ -40,9 +37,9 @@ Router.route('/')
   })
 
 Router.route('/games')
-.post(function (req, res) {
-  var game = new Game ()
-  game.save(function (error, game) {
+.post((req, res) => {
+  const game = new Game ()
+  game.save((error, game) => {
     if (error) {
       res.status(500).send(error, {message: 'error saving game'});
     } else {
@@ -52,12 +49,12 @@ Router.route('/games')
 })
 
 Router.route('/games/:gameId')
-.get(function (req, res) {
+.get((req, res) => {
   Game.findById(req.params.gameId)
     .populate({
       path: 'players',
     })
-    .exec(function (error, game) {
+    .exec((error, game) => {
       if (error) {
         res.status(500).send(error, {message: 'Error getting game by Id'});
       } else {
