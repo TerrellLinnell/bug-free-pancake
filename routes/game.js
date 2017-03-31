@@ -16,9 +16,9 @@ Router.route('/')
       .populate({
         path:'name'
       })
-      .exec(function(err, players){
-        if (err) {
-          res.json(err, 'ERROR');
+      .exec(function(error, players){
+        if (error) {
+          res.status(500).send(error);
         } else {
           res.json(players);
         }
@@ -30,9 +30,9 @@ Router.route('/')
       players: req.body,
       complete: 0
     });
-    game.save(function(err, game){
-      if (err) {
-        res.json({ message: 'there was an error saving the game' });
+    game.save(function(error, game){
+      if (error) {
+        res.status(500).send(error, { message: 'there was an error saving the game' });
       } else {
         res.json(game);
       }
@@ -42,9 +42,9 @@ Router.route('/')
 Router.route('/games')
 .post(function (req, res) {
   var game = new Game ()
-  game.save(function (err, game) {
-    if (err) {
-      res.json({message: 'error saving game'})
+  game.save(function (error, game) {
+    if (error) {
+      res.status(500).send(error, {message: 'error saving game'});
     } else {
       res.json(game)
     }
@@ -57,9 +57,9 @@ Router.route('/games/:gameId')
     .populate({
       path: 'players',
     })
-    .exec(function (err, game) {
-      if (err) {
-        res.json(err, 'ERROR');
+    .exec(function (error, game) {
+      if (error) {
+        res.status(500).send(error, {message: 'Error getting game by Id'});
       } else {
         res.json(game)
       }
