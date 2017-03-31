@@ -56,7 +56,7 @@ class HomeContainer extends Component {
       <div className='HomeFlexBox'>
       <h1> Welcome to the code quiz game!</h1>
       <div>
-        {this.state.game ? <HomeForm onSubmitHandler={this.onSubmitHandler} game={this.state.game} onChangeHandler={this.onChangeHandler} gameId={this.state.game._id}/> : null}
+        {this.state.game ? <HomeForm onSubmitHandler={this.onSubmitHandler} name={this.state.name} game={this.state.game} onChangeHandler={this.onChangeHandler} gameId={this.state.game._id}/> : null}
       </div>
       <div>
         {this.state.players && this.state.game? <PlayersDisplay game={this.state.game}/> : null}
