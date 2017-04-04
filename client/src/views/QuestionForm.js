@@ -1,12 +1,12 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap';
+import {Form, Button} from 'react-bootstrap';
 
 const QuestionForm = (props) => {
   var Answers = props.question.answers.map(function (item) {
     return (
       <div key={item.answer} className='form-group'>
-        <input name='answer' type='radio' value={item.correct} onChange={ (event) => props.onChangeHandler(event.target.value)}/>
-        <label className='answerText'>{item.answer} </label>
+        <input name='answer' type='radio' value={item.correct} onChange={(event) => props.onChangeHandler(event.target.value)}/>
+        <label className='answerText'>{item.answer}</label>
       </div>
     )
   })

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import $ from 'jquery';
 import PlayerHeader from '../views/PlayerHeader';
 import Results from '../views/Results';
@@ -10,7 +10,6 @@ class GameContainer extends Component {
     super(props);
 
     this.state = {
-
       game       :  null,
       players    :  null,
       currPlayer :  null,
@@ -18,21 +17,16 @@ class GameContainer extends Component {
       turn       :  0,
       complete   :  false,
     }
+
   }
 
-  componentWillMount = () => {
-    this.getGameById();
-  }
+  componentWillMount = () => {this.getGameById()}
 
   getGameById = () => {
     $.ajax({
-      url: '/api/games/' + this.props.params.gameId,
+      url:    '/api/games/' + this.props.params.gameId,
       method: 'GET'
-    }).done((game) => {
-      this.setState({game});
-      this.setState({players: game.players})
-      this.setState({currPlayer: game.players[0]})
-    })
+    }).done(game => this.setState({game: game, players: game.players, currPlayer: game.players[0]}));
   }
 
   nextQuestion = (answer) => {
@@ -46,7 +40,7 @@ class GameContainer extends Component {
         scores  = [0,100,200,300]
 
     // increment turn by one
-    this.setState({turn: this.state.turn+=1})
+    this.setState({turn: this.state.turn += 1});
 
     // check for correct answer from onChangeHandler in QuestionContainer.js
     // if answer is correct, update player score based on current round and set players state
@@ -77,7 +71,7 @@ class GameContainer extends Component {
         this.setState({players: sortPlayers, complete: true})
       }
     } else {
-      
+
       // update current player
       this.setState({currPlayer: players[this.state.turn]})
     }

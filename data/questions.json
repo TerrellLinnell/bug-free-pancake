@@ -15,7 +15,7 @@
     level: 1,
     question: 'What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?',
     answers: [
-      {answer:'document.getElementById("demo").innerHTML = "Hello World!";', correct:false},
+      {answer:'document.getElementById("demo").innerHTML = "Hello World!";', correct:true},
       {answer:'#demo.innerHTML = "Hello World!";', correct:false},
       {answer:'document.getElement("p").innerHTML = "Hello World!";', correct:false},
       {answer:'document.getElementByName("p").innerHTML = "Hello World!";', correct:false}
@@ -28,7 +28,7 @@
     answers: [
       {answer:'The <head> section', correct:false},
       {answer:'The <body> section', correct:false},
-      {answer:'Both the <head> section and the <body> section are correct', correct:false}
+      {answer:'Both the <head> section and the <body> section are correct', correct:true}
     ]
   },
   {

@@ -1,3 +1,14 @@
+/*==========================================================================
+                            APP THEME CSS
+==========================================================================*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: blanchedalmond;
+}
+
 .App {
   text-align: center;
 }
@@ -12,6 +23,10 @@
 .App-intro {
   font-size: large;
 }
+
+/*==========================================================================
+                            GAME CONTAINER CSS
+==========================================================================*/
 
 .gameHeader {
   display: flex;
@@ -35,16 +50,11 @@
     }
   }
 
-
-.answerList {
-  list-style-type: upper-alpha;
-}
-
 .myContainer {
   background-color: blanchedalmond;
 }
 /*==========================================================================
-Home CSS
+                            HOME CSS
 ==========================================================================*/
 .HomeFlexBox {
   display: flex;
@@ -69,7 +79,7 @@ Home CSS
   color: white;
 }
 /*==========================================================================
-Question CSS
+                              Question CSS
 ==========================================================================*/
 
 .AlertSuccess {
@@ -94,6 +104,10 @@ Question CSS
   width: 100%;
   border-radius: 10%;
   border: 2px outset black;
+}
+
+.answerList {
+  list-style-type: upper-alpha;
 }
 
 .answerText {

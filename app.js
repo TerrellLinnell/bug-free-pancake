@@ -1,16 +1,17 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+const express      = require('express');
+const path         = require('path');
+const logger       = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser   = require('body-parser');
+const mongoose     = require('mongoose');
 
-var app = express();
+const app = express();
 
 mongoose.connect('mongodb://localhost/quiz');
 
-var gameRoutes = require('./routes/game');
-
+const gameRoutes     = require('./routes/game');
+const questionRoutes = require('./routes/questions');
+const playerRoutes   = require('./routes/players');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -22,10 +23,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set('port', (process.env.PORT || 3000));
 
 app.use('/api', gameRoutes);
+app.use('/api', questionRoutes);
+app.use('/api', playerRoutes);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
