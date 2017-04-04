@@ -26,12 +26,13 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.set('view engine', 'ejs');
-app.set('port', (process.env.PORT || 3000));
+// Express only serves static assets in production
+const isProd = process.env.NODE_ENV === 'production';
+const clientPath = isProd ? 'client/build' : 'client/public';
 
-app.use('/api', gameRoutes);
-app.use('/api', questionRoutes);
-app.use('/api', playerRoutes);
+if (isProd) {
+  app.use(express.static(clientPath));
+}
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -40,5 +41,15 @@ app.use((req, res, next) => {
   next(err);
 });
 
+// app.set('view engine', 'ejs');
+app.set('port', (process.env.PORT || 3000));
+
+app.use('/api', gameRoutes);
+app.use('/api', questionRoutes);
+app.use('/api', playerRoutes);
+
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, clientPath, 'index.html'));
+});
 
 module.exports = app;
