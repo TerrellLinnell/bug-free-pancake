@@ -33,11 +33,11 @@ if (isProd) {
 }
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => {
-  const err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
+// app.use((req, res, next) => {
+//   const err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 // app.set('view engine', 'ejs');
 app.set('port', (process.env.PORT || 3000));
