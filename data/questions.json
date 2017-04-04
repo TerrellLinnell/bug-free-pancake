@@ -1,259 +1,259 @@
 [
   {
-    id: 1,
-    level: 1,
-    question: 'Inside which HTML element do we put the JavaScript?',
-    answers: [
-      {answer:'<javascript>', correct:false},
-      {answer:'<js>', correct:false},
-      {answer:'<script>', correct:true},
-      {answer:'<scripting>', correct:false}
+    "id": 1,
+    "level": 1,
+    "question": "Inside which HTML element do we put the JavaScript?",
+    "answers": [
+      {"answer":"<javascript>", "correct":false},
+      {"answer":"<js>", "correct":false},
+      {"answer":"<script>", "correct":true},
+      {"answer":"<scripting>", "correct":false}
     ]
   },
   {
-    id: 2,
-    level: 1,
-    question: 'What is the correct JavaScript syntax to change the content of the HTML element <p id="demo">This is a demonstration.</p>?',
-    answers: [
-      {answer:'document.getElementById("demo").innerHTML = "Hello World!";', correct:true},
-      {answer:'#demo.innerHTML = "Hello World!";', correct:false},
-      {answer:'document.getElement("p").innerHTML = "Hello World!";', correct:false},
-      {answer:'document.getElementByName("p").innerHTML = "Hello World!";', correct:false}
+    "id": 2,
+    "level": 1,
+    "question": "What is the correct JavaScript syntax to change the content of the HTML element <p id='demo'>This is a demonstration.</p>?",
+    "answers": [
+      {"answer":"document.getElementById('demo').innerHTML = 'Hello World!';", "correct":true},
+      {"answer":"#demo.innerHTML = 'Hello World!';", "correct":false},
+      {"answer":"document.getElement('p').innerHTML = 'Hello World!';", "correct":false},
+      {"answer":"document.getElementByName('p').innerHTML = 'Hello World!';", "correct":false}
     ]
   },
   {
-    id: 3,
-    level: 1,
-    question: 'Where is the correct place to insert a JavaScript?',
-    answers: [
-      {answer:'The <head> section', correct:false},
-      {answer:'The <body> section', correct:false},
-      {answer:'Both the <head> section and the <body> section are correct', correct:true}
+    "id": 3,
+    "level": 1,
+    "question": "Where is the correct place to insert a JavaScript?",
+    "answers": [
+      {"answer":"The <head> section", "correct":false},
+      {"answer":"The <body> section", "correct":false},
+      {"answer":"Both the <head> section and the <body> section are correct", "correct":true}
     ]
   },
   {
-    id: 4,
-    level: 1,
-    question: 'What is the correct syntax for referring to an external script called "xxx.js"?',
-    answers: [
-      {answer:'<script href="xxx.js">', correct:false},
-      {answer:'<script name="xxx.js">', correct:false},
-      {answer:'<script src="xxx.js">', correct:true}
+    "id": 4,
+    "level": 1,
+    "question": "What is the correct syntax for referring to an external script called 'xxx.js'?",
+    "answers": [
+      {"answer":"<script href='xxx.js'>", "correct":false},
+      {"answer":"<script name='xxx.js'>", "correct":false},
+      {"answer":"<script src='xxx.js'>", "correct":true}
     ]
   },
   {
-    id: 5,
-    level: 1,
-    question: 'The external JavaScript file must contain the <script> tag.',
-    answers: [
-      {answer:'True', correct:false},
-      {answer:'False', correct:true}
+    "id": 5,
+    "level": 1,
+    "question": "The external JavaScript file must contain the <script> tag.",
+    "answers": [
+      {"answer":"True", "correct":false},
+      {"answer":"False", "correct":true}
     ]
   },
   {
-    id: 6,
-    level: 1,
-    question: 'How do you write "Hello World" in an alert box?',
-    answers: [
-      {answer:'msgBox("Hello World");', correct:false},
-      {answer:'alertBox("Hello World");', correct:false},
-      {answer:'alert("Hello World");', correct:true},
-      {answer:'msg("Hello World");', correct:false}
+    "id": 6,
+    "level": 1,
+    "question": "How do you write 'Hello World' in an alert box?",
+    "answers": [
+      {"answer":"msgBox('Hello World');", "correct":false},
+      {"answer":"alertBox('Hello World');", "correct":false},
+      {"answer":"alert('Hello World');", "correct":true},
+      {"answer":"msg('Hello World');", "correct":false}
     ]
   },
   {
-    id: 7,
-    level: 1,
-    question: 'How do you create a function in JavaScript?',
-    answers: [
-      {answer:'function:myFunction()', correct:false},
-      {answer:'function myFunction()', correct:true},
-      {answer:'function = myFunction()', correct:false}
+    "id": 7,
+    "level": 1,
+    "question": "How do you create a function in JavaScript?",
+    "answers": [
+      {"answer":"function:myFunction()", "correct":false},
+      {"answer":"function myFunction()", "correct":true},
+      {"answer":"function = myFunction()", "correct":false}
     ]
   },
   {
-    id: 8,
-    level: 1,
-    question: 'How do you call a function named "myFunction"?',
-    answers: [
-      {answer:'call function myFunction()', correct:false},
-      {answer:'call myFunction()', correct:false},
-      {answer:'myFunction()', correct:true}
+    "id": 8,
+    "level": 1,
+    "question": "How do you call a function named 'myFunction'?",
+    "answers": [
+      {"answer":"call function myFunction()", "correct":false},
+      {"answer":"call myFunction()", "correct":false},
+      {"answer":"myFunction()", "correct":true}
     ]
   },
   {
-    id: 9,
-    level: 2,
-    question: 'How to write an IF statement in JavaScript?',
-    answers: [
-      {answer:'if i = 5', correct:false},
-      {answer:'if (i == 5)', correct:true},
-      {answer:'if i = 5 then', correct:false},
-      {answer:'if i == 5 then', correct:false}
+    "id": 9,
+    "level": 2,
+    "question": "How to write an IF statement in JavaScript?",
+    "answers": [
+      {"answer":"if i = 5", "correct":false},
+      {"answer":"if (i == 5)", "correct":true},
+      {"answer":"if i = 5 then", "correct":false},
+      {"answer":"if i == 5 then", "correct":false}
     ]
   },
   {
-    id: 10,
-    level: 2,
-    question: 'How to write an IF statement for executing some code if "i" is NOT equal to 5?',
-    answers: [
-      {answer:'if (i <> 5)', correct:false},
-      {answer:'if i =! 5 then', correct:false},
-      {answer:'if i <> 5', correct:false},
-      {answer:'if (i != 5)', correct:true}
+    "id": 10,
+    "level": 2,
+    "question": "How to write an IF statement for executing some code if 'i' is NOT equal to 5?",
+    "answers": [
+      {"answer":"if (i <> 5)", "correct":false},
+      {"answer":"if i =! 5 then", "correct":false},
+      {"answer":"if i <> 5", "correct":false},
+      {"answer":"if (i != 5)", "correct":true}
     ]
   },
   {
-    id: 11,
-    level: 2,
-    question: 'How does a WHILE loop start?',
-    answers: [
-      {answer:'while i = 1 to 10', correct:false},
-      {answer:'while (i <= 10)', correct:true},
-      {answer:'while (i <= 10; i++)', correct:false}
+    "id": 11,
+    "level": 2,
+    "question": "How does a WHILE loop start?",
+    "answers": [
+      {"answer":"while i = 1 to 10", "correct":false},
+      {"answer":"while (i <= 10)", "correct":true},
+      {"answer":"while (i <= 10; i++)", "correct":false}
     ]
   },
   {
-    id: 12,
-    level: 2,
-    question: 'How does a FOR loop start?',
-    answers: [
-      {answer:'for (i = 0; i <= 5)', correct:false},
-      {answer:'for (i <= 5; i++)', correct:false},
-      {answer:'for i = 1 to 5', correct:false},
-      {answer:'for (i = 0; i <= 5; i++)', correct:true}
+    "id": 12,
+    "level": 2,
+    "question": "How does a FOR loop start?",
+    "answers": [
+      {"answer":"for (i = 0; i <= 5)", "correct":false},
+      {"answer":"for (i <= 5; i++)", "correct":false},
+      {"answer":"for i = 1 to 5", "correct":false},
+      {"answer":"for (i = 0; i <= 5; i++)", "correct":true}
     ]
   },
   {
-    id: 13,
-    level: 2,
-    question: 'How can you add a comment in a JavaScript?',
-    answers: [
-      {answer:'<!--This is a comment-->', correct:false},
-      {answer:'This is a comment', correct:false},
-      {answer:'//This is a comment', correct:true}
+    "id": 13,
+    "level": 2,
+    "question": "How can you add a comment in a JavaScript?",
+    "answers": [
+      {"answer":"<!--This is a comment-->", "correct":false},
+      {"answer":"This is a comment", "correct":false},
+      {"answer":"//This is a comment", "correct":true}
     ]
   },
   {
-    id: 14,
-    level: 2,
-    question: 'How to insert a comment that has more than one line?',
-    answers: [
-      {answer:'//This comment has more than one line//', correct:false},
-      {answer:'<!--This comment has more than one line-->', correct:false},
-      {answer:'/*This comment has more than one line*/', correct:true}
+    "id": 14,
+    "level": 2,
+    "question": "How to insert a comment that has more than one line?",
+    "answers": [
+      {"answer":"//This comment has more than one line//", "correct":false},
+      {"answer":"<!--This comment has more than one line-->", "correct":false},
+      {"answer":"/*This comment has more than one line*/", "correct":true}
     ]
   },
   {
-    id: 15,
-    level: 2,
-    question: 'What is the correct way to write a JavaScript array?',
-    answers: [
-      {answer:'var colors = "red", "green", "blue"', correct:false},
-      {answer:'var colors = 1 = ("red"), 2 = ("green"), 3 = ("blue")', correct:false},
-      {answer:'var colors = (1:"red", 2:"green", 3:"blue")', correct:false},
-      {answer:'var colors = ["red", "green", "blue"]', correct:true}
+    "id": 15,
+    "level": 2,
+    "question": "What is the correct way to write a JavaScript array?",
+    "answers": [
+      {"answer":"var colors = 'red', 'green', 'blue'", "correct":false},
+      {"answer":"var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')", "correct":false},
+      {"answer":"var colors = (1:'red', 2:'green', 3:'blue')", "correct":false},
+      {"answer":"var colors = ['red', 'green', 'blue']", "correct":true}
     ]
   },
   {
-    id: 16,
-    level: 2,
-    question: 'How do you round the number 7.25, to the nearest integer?',
-    answers: [
-      {answer:'round(7.25)', correct:false},
-      {answer:'Math.round(7.25)', correct:true},
-      {answer:'Math.rnd(7.25)', correct:false},
-      {answer:'rnd(7.25)', correct:false}
+    "id": 16,
+    "level": 2,
+    "question": "How do you round the number 7.25, to the nearest integer?",
+    "answers": [
+      {"answer":"round(7.25)", "correct":false},
+      {"answer":"Math.round(7.25)", "correct":true},
+      {"answer":"Math.rnd(7.25)", "correct":false},
+      {"answer":"rnd(7.25)", "correct":false}
     ]
   },
   {
-    id: 17,
-    level: 3,
-    question: 'How do you find the number with the highest value of x and y?',
-    answers: [
-      {answer:'Math.max(x, y)', correct:true},
-      {answer:'Math.ceil(x, y)', correct:false},
-      {answer:'top(x, y)', correct:false},
-      {answer:'ceil(x, y)', correct:false}
+    "id": 17,
+    "level": 3,
+    "question": "How do you find the number with the highest value of x and y?",
+    "answers": [
+      {"answer":"Math.max(x, y)", "correct":true},
+      {"answer":"Math.ceil(x, y)", "correct":false},
+      {"answer":"top(x, y)", "correct":false},
+      {"answer":"ceil(x, y)", "correct":false}
     ]
   },
   {
-    id: 18,
-    level: 3,
-    question: 'What is the correct JavaScript syntax for opening a new window called "w2" ?',
-    answers: [
-      {answer:'w2 = window.open("http://www.w3schools.com");', correct:true},
-      {answer:'w2 = window.new("http://www.w3schools.com");', correct:false}
+    "id": 18,
+    "level": 3,
+    "question": "What is the correct JavaScript syntax for opening a new window called 'w2' ?",
+    "answers": [
+      {"answer":"w2 = window.open('http://www.w3schools.com');", "correct":true},
+      {"answer":"w2 = window.new('http://www.w3schools.com');", "correct":false}
     ]
   },
   {
-    id: 19,
-    level: 3,
-    question: 'JavaScript is the same as Java.',
-    answers: [
-      {answer:'False', correct:true},
-      {answer:'True', correct:false}
+    "id": 19,
+    "level": 3,
+    "question": "JavaScript is the same as Java.",
+    "answers": [
+      {"answer":"False", "correct":true},
+      {"answer":"True", "correct":false}
     ]
   },
   {
-    id: 20,
-    level: 3,
-    question: 'How can you detect the client\'s browser name?',
-    answers: [
-      {answer:'navigator.appName', correct:true},
-      {answer:'client.navName', correct:false},
-      {answer:'browser.name', correct:false}
+    "id": 20,
+    "level": 3,
+    "question": "How can you detect the client\"s browser name?",
+    "answers": [
+      {"answer":"navigator.appName", "correct":true},
+      {"answer":"client.navName", "correct":false},
+      {"answer":"browser.name", "correct":false}
     ]
   },
   {
-    id: 21,
-    level: 3,
-    question: 'Which event occurs when the user clicks on an HTML element?',
-    answers: [
-      {answer:'onmouseclick', correct:false},
-      {answer:'onmouseover', correct:false},
-      {answer:'onchange', correct:false},
-      {answer:'onclick', correct:true}
+    "id": 21,
+    "level": 3,
+    "question": "Which event occurs when the user clicks on an HTML element?",
+    "answers": [
+      {"answer":"onmouseclick", "correct":false},
+      {"answer":"onmouseover", "correct":false},
+      {"answer":"onchange", "correct":false},
+      {"answer":"onclick", "correct":true}
     ]
   },
   {
-    id: 22,
-    level: 3,
-    question: 'How do you declare a JavaScript variable?',
-    answers: [
-      {answer:'v carName;', correct:false},
-      {answer:'variable carName;', correct:false},
-      {answer:'var carName;', correct:true}
+    "id": 22,
+    "level": 3,
+    "question": "How do you declare a JavaScript variable?",
+    "answers": [
+      {"answer":"v carName;", "correct":false},
+      {"answer":"variable carName;", "correct":false},
+      {"answer":"var carName;", "correct":true}
     ]
   },
   {
-    id: 23,
-    level: 3,
-    question: 'Which operator is used to assign a value to a variable?',
-    answers: [
-      {answer:'-', correct:false},
-      {answer:'x', correct:false},
-      {answer:'*', correct:false},
-      {answer:'=', correct:true}
+    "id": 23,
+    "level": 3,
+    "question": "Which operator is used to assign a value to a variable?",
+    "answers": [
+      {"answer":"-", "correct":false},
+      {"answer":"x", "correct":false},
+      {"answer":"*", "correct":false},
+      {"answer":"=", "correct":true}
     ]
   },
   {
-    id: 24,
-    level: 3,
-    question: 'What will the following code return: Boolean(10 > 9)',
-    answers: [
-      {answer:'false', correct:false},
-      {answer:'NaN', correct:false},
-      {answer:'true', correct:true}
+    "id": 24,
+    "level": 3,
+    "question": "What will the following code return: Boolean(10 > 9)",
+    "answers": [
+      {"answer":"false", "correct":false},
+      {"answer":"NaN", "correct":false},
+      {"answer":"true", "correct":true}
     ]
   },
   {
-    id: 25,
-    level: 3,
-    question: 'Is JavaScript case-sensitive?',
-    answers: [
-      {answer:'Yes', correct:true},
-      {answer:'No', correct:false}
+    "id": 25,
+    "level": 3,
+    "question": "Is JavaScript case-sensitive?",
+    "answers": [
+      {"answer":"Yes", "correct":true},
+      {"answer":"No", "correct":false}
     ]
   }
 ]
