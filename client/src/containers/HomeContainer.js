@@ -46,9 +46,9 @@ class HomeContainer extends Component {
                 name: this.state.name
               }
     }).done((data) => {
-        this.getGameById();
-        $('#playerName').val('');
-        this.setState(data)
+      this.getGameById();
+      $('#playerName').val('');
+      this.setState(data)
     })
   }
   render () {
