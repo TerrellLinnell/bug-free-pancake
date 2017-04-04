@@ -22,7 +22,7 @@ class HomeContainer extends Component {
       method: 'POST',
       data: {}
     }).done((game) => {
-        this.setState({game});
+      this.setState({game});
     })
   }
 
@@ -50,14 +50,12 @@ class HomeContainer extends Component {
         name: this.state.name
       }
     }).done((data) => {
-        this.getGameById();
-        $('#playerName').val('');
-        this.setState(data)
+      this.getGameById();
+      $('#playerName').val('');
+      this.setState(data)
     })
   }
   render () {
-    console.log(this.state.name);
-    console.log(this.state.game);
     return (
       <div className='HomeFlexBox'>
       <h1> Welcome to the code quiz game!</h1>
